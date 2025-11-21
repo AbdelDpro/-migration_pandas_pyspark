@@ -1,0 +1,43 @@
+# input_dir: "./data/march-input"
+# output_dir: "./data/out"
+# db_path: "./data/sales_db.db"
+# csv_sep: ","
+# csv_encoding: "utf-8"
+# csv_float_format: "%.2f"
+
+# paths:
+#   base_dir: "/home/abdeldpro/cours/Esther_brief/migration_pandas_pyspark"
+#   input_file: "data/transactions.csv"
+
+
+# settings.yaml
+input_dir: "./data/march-input"
+output_dir: "./data/out"
+db_path: "./data/sales.db"
+csv_sep: ","
+csv_encoding: "utf-8"
+csv_float_format: "%.2f"
+
+# Fichiers d'entrée
+input_files:
+  customers: "customers.csv"
+  orders_pattern: "orders_*.json"  # Pattern pour les fichiers journaliers
+  refunds: "refunds.csv"
+
+# Colonnes attendues dans le CSV de sortie
+output_columns:
+  - "date"
+  - "city"
+  - "channel"
+  - "orders_count"
+  - "unique_customers"
+  - "items_sold"
+  - "gross_revenue_eur"
+  - "refunds_eur"
+  - "net_revenue_eur"
+
+# Règles métier
+business_rules:
+  payment_status: "paid"
+  exclude_inactive_customers: true
+  exclude_negative_prices: true
